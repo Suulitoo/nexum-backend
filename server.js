@@ -1,23 +1,22 @@
-const express = require('express');
-const app = express();
+
+
+console.log("Le script server.js commence à s'exécuter...");
+
+// On utilise le module http de base de Node.js, qui est toujours présent
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  console.log(`Requête reçue pour: ${req.url}`);
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Backend is alive with pure Node.js!');
+});
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  console.log("Requête reçue pour /");
-  res.send('Backend is alive!');
+server.listen(PORT, () => {
+  console.log(`Serveur de test pur démarré et à l'écoute sur le port ${PORT}`);
 });
 
-app.get('/auth/discord', (req, res) => {
-  console.log("Requête reçue pour /auth/discord");
-  res.send('Auth endpoint is alive!');
-});
-
-const server = app.listen(PORT, () => {
-  console.log(`Serveur de test démarré et à l'écoute sur le port ${PORT}`);
-});
-
-// Ce timer va nous dire si le serveur est encore vivant après 10 secondes
 setTimeout(() => {
-  console.log("Le serveur est toujours en vie après 10 secondes. C'est une bonne signe !");
+  console.log("Le serveur pur est toujours en vie après 10 secondes. Le problème n'est pas Node.js.");
 }, 10000);
