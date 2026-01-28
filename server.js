@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   res.end('Backend is alive with pure Node.js!');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080; // On met 8080 par défaut au lieu de 3000
 
 server.listen(PORT, () => {
   console.log(`Serveur de test pur démarré et à l'écoute sur le port ${PORT}`);
