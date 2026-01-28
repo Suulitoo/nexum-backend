@@ -6,15 +6,14 @@ console.log("Le script server.js commence à s'exécuter...");
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  console.log(`Requête reçue pour: ${req.url}`);
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Backend is alive with pure Node.js!');
+  res.end('Deploy works!');
 });
 
-const PORT = process.env.PORT || 8080; // On met 8080 par défaut au lieu de 3000
+const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
-  console.log(`Serveur de test pur démarré et à l'écoute sur le port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 setTimeout(() => {
