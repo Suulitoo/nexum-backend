@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUM Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* BODY + VIDEO BACKGROUND */
+body {
+    margin:0;
+    font-family:'Orbitron',sans-serif;
+    min-height:100vh;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    position: relative;
+    overflow-y: auto; /* ✅ autoriser le scroll vertical */
+}
+
+/* Video en background */
+.video-bg {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-2;
+}
+.video-bg video {
+    width:100%; height:100%;
+    object-fit: cover;
+}
+.video-bg::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.65); /* overlay sombre */
+    z-index:-1;
+}
+
+/* HEADER / FOOTER / CONTENT */
+header {
+    background:linear-gradient(90deg,#0b0b0b,#1a0000,#0b0b0b);
+    padding:40px 20px;
+    text-align:center;
+    border-bottom:2px solid #f70b0b;
+    position: relative; z-index:1;
+}
+header h1 {
+    font-size:3rem;
+    margin:0;
+    background:linear-gradient(90deg,#ffffff,#f70b0b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+header p {font-size:1.2rem; margin-top:10px;}
+main {flex:1; padding:20px; position: relative; z-index:1;}
+.container {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+.card {
+    background:#111;
+    border:2px solid #f70b0b;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+}
+.card h2 { color:#f70b0b; }
+.card button {
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    border-radius:8px;
+    background:#f70b0b;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+.card button:hover {background:#ff0b0b; box-shadow:0 0 10px #ff0b0b;}
+.cart {
+    background:#111;
+    border:2px solid #f70b0b;
+    border-radius:15px;
+    padding:20px;
+    max-width:400px;
+    margin:30px auto;
+    position: relative; z-index:1;
+}
+.cart ul {list-style:none; padding:0;}
+.cart li {display:flex; justify-content:space-between; margin-bottom:10px;}
+.paypal-container {margin-top:20px; display:flex; justify-content:center;}
+footer {
+    text-align:center;
+    padding:20px;
+    border-top:2px solid #f70b0b;
+    position: relative; z-index:1;
+}
+
+/* Bouton PayPal Ami Proche */
+#paypal-friend-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #009cde;
+    background: linear-gradient(90deg, #003087, #009cde);
+    color: white;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display:block;
+    margin:10px auto;
+}
+#paypal-friend-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #009cde;
+}
+
+/* Checkbox terms / friend */
+label {display:block; text-align:center; margin:10px 0;}
+label input {margin-right:5px;}
+</style>
+</head>
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+    <video autoplay muted loop playsinline>
+        <source src="video/videocoinsnexum2.mp4" type="video/mp4">
+    </video>
+</div>
+
+<header>
+    <h1>NEXUM BOUTIQUE</h1>
+    <p>Vos coins FiveM en un clic</p>
+    <p>⚠️Tarif réduit!⚠️ </p>
+</header>
+
+<main>
+    <!-- Bouton PayPal Ami Proche -->
+    <div class="paypal-container">
+        <button id="paypal-friend-btn">
+            💸 PayPal Ami Proche<br>CLIQUE SUR CE BOUTON
+        </button>
+    </div>
+
+    <!-- Container avec tous les packs de coins -->
+    <div class="container">
+        <div class="card">
+            <img src="img/image1.png" alt="1.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>1.000 Coins</h2>
+            <p>10€</p>
+            <button onclick="addToCart('1.000 Coins', 10)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image1.png" alt="1.500 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>1.500 Coins</h2>
+            <p>15€</p>
+            <button onclick="addToCart('1.500 Coins', 15)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image2.png" alt="2.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>2.000 Coins</h2>
+            <p>20€</p>
+            <button onclick="addToCart('2.000 Coins', 20)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image2.png" alt="3.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>3.000 Coins</h2>
+            <p>30€</p>
+            <button onclick="addToCart('3.000 Coins', 30)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image3.png" alt="4.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>4.000 Coins</h2>
+            <p>40€</p>
+            <button onclick="addToCart('4.000 Coins', 40)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image4.png" alt="6.500 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>6.500 Coins</h2>
+            <p>50€</p>
+            <button onclick="addToCart('6.500 Coins', 50)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image5.png" alt="9.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>9.000 Coins</h2>
+            <p>80€</p>
+            <button onclick="addToCart('9.000 Coins', 80)">Ajouter au panier</button>
+        </div>
+        <div class="card">
+            <img src="img/image5.png" alt="12.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
+            <h2>12.000 Coins</h2>
+            <p>100€</p>
+            <button onclick="addToCart('12.000 Coins', 100)">Ajouter au panier</button>
+        </div>
+    </div>
+
+    <!-- Panier -->
+    <div class="cart">
+        <h3>Panier</h3>
+        <button id="clearCartBtn">Vider le panier</button>
+        <ul id="cartItems"></ul>
+        <p>Total : <strong><span id="total">0.00</span> €</strong></p>
+
+        <p style="color:#b3b3b3; font-weight:bold; text-align:center; margin-bottom:10px;">
+            Pour bénéficier du paiement en ami proche et payer moins cher, clique sur le bouton: "PayPal Ami Proche" au dessus des packs de coins
+
+        <!-- Checkbox obligatoire -->
+        <label>
+            <input type="checkbox" id="friend-check"> J’ai ajouté le compte PayPal en ami proche
+        </label>
+        <label>
+            <input type="checkbox" id="terms-check"> J’ai lu et j’accepte les <a href="conditions.html" target="_blank">conditions de vente</a>. Les achats sont définitifs et non remboursables.
+        </label>
+
+        <div class="paypal-container">
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <p style="color:#f70b0b; text-align:center; margin-top:15px;">
+        ⚠️ Produit numérique – aucun remboursement possible après paiement. ⚠️
+    </p>
+</main>
+
+<footer style="position:relative;">
+  © 2026 NEXUM
+  <!-- Container flottant pour bouton + flèche -->
+<div style="position: fixed; right: 20px; bottom: 10px; display: flex; align-items: center; gap: 10px; z-index: 9999;">
+
+  <!-- Flèche animée + texte -->
+  <div style="display: flex; align-items: center; gap: 5px; font-weight: bold; color: #ff0b0b; cursor: pointer; animation: bounce 1.2s infinite;">
+    <span>Clique ici</span>
+    <span style="font-size:1.2rem;">➡️</span>
+  </div>
+
+  <!-- Bouton -->
+  <button id="lorenzo-btn" style="
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ff0b0b, #f70b0b);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff0b0b;
+      transition: transform 0.2s, box-shadow 0.2s;
+  ">
+    Créé par LORENZO CARTER
+  </button>
+</div>
+
+<script>
+document.getElementById("lorenzo-btn").onclick = () => {
+    window.open("https://tonsiteoureseaux.com", "_blank");
+};
+</script>
+
+<style>
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+#lorenzo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0b0b;
+}
+</style>
+
+<style>
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+#lorenzo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0b0b;
+}
+</style>
+
+<!-- SDK PAYPAL -->
+<script src="https://www.paypal.com/sdk/js?client-id=AWroWMmvYtFai5hD9nuv1dYbJkni-IVa1ak9g6jDDKAS0SOYItVRdMkZusK08JVbVS0Ytz85-Xbf5Rff&currency=EUR"></script>
+
+<script>
+// Bouton PayPal Ami Proche
+document.getElementById("paypal-friend-btn").onclick = () => {
+    window.open("https://www.paypal.me/ErwanTerrier", "_blank");
+};
+
+// Panier
+let cart = [];
+let total = 0;
+function addToCart(name, price){
+    cart.push({name, price});
+    total += price;
+    renderCart();
+}
+function renderCart(){
+    const list = document.getElementById("cartItems");
+    list.innerHTML="";
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML=`<span>${item.name}</span><span>${item.price.toFixed(2)}€</span>`;
+        list.appendChild(li);
+    });
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+
+// Vider le panier
+document.getElementById("clearCartBtn").onclick = () => {
+    cart = [];
+    total = 0;
+    renderCart();
+};
+
+// PayPal
+paypal.Buttons({
+    createOrder: function (data, actions) {
+        const friendChecked = document.getElementById("friend-check").checked;
+        const termsChecked = document.getElementById("terms-check").checked;
+
+        if (!friendChecked || !termsChecked) {
+            alert("Vous devez accepter les conditions et ajouter le compte PayPal en ami proche.");
+            throw new Error("Conditions non acceptées");
+        }
+
+        if (total <= 0) {
+            alert("Panier vide");
+            throw new Error("Panier vide");
+        }
+
+        return actions.order.create({
+            purchase_units: [{ amount: { value: total.toFixed(2) } }]
+        });
+    },
+    onApprove: function (data, actions) {
+        return actions.order.capture().then(() => {
+            alert("Paiement validé");
+            cart = [];
+            total = 0;
+            renderCart();
+        });
+    },
+    onError: function(err){
+        console.error("Erreur PayPal:", err);
+    }
+}).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

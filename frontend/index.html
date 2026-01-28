@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenue • NEXUM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Vidéo background */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
+    }
+
+    /* Contenu centré */
+    .overlay {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #f70b0b;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    h1 span {
+      color: #f70b0b;
+      text-shadow: 0 0 10px #f70b0b;
+    }
+
+    p {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #f70b0b, #ff3b3b);
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #f70b0b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Vidéo background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="video/videocoinsnexum.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Contenu -->
+  <div class="overlay">
+    <div class="box">
+      <h1>Bienvenue à <span>NEXUM</span></h1>
+      <p>La boutique officielle de coins FiveM</p>
+      <a href="login.html">
+        <button class="btn">Continuer</button>
+      </a>
+    </div>
+  </div>
+
+</body>
+<!-- Bouton flottant "Créé par LORENZO CARTER" -->
+<!-- Container flottant pour bouton + flèche -->
+<div style="position: fixed; right: 10px; bottom: 10px; display: flex; align-items: center; gap: 10px; z-index: 9999;">
+
+  <!-- Flèche animée + texte -->
+  <div style="display: flex; align-items: center; gap: 5px; font-weight: bold; color: #ff0b0b; cursor: pointer; animation: bounce 1.2s infinite;">
+    <span>Clique ici</span>
+    <span style="font-size:1.2rem;">➡️</span>
+  </div>
+
+  <!-- Bouton -->
+  <button id="lorenzo-btn" style="
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ff0b0b, #f70b0b);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff0b0b;
+      transition: transform 0.2s, box-shadow 0.2s;
+  ">
+    Créé par LORENZO CARTER
+  </button>
+</div>
+
+
+
+<style>
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+#lorenzo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0b0b;
+}
+</style>
+
+
+<script>
+document.getElementById("lorenzo-btn").onclick = () => {
+    window.open("https://suulitoo.github.io/mes-liens-social-clean/", "_blank");
+};
+</script>
+</html>

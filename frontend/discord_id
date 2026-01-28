@@ -1,0 +1,21 @@
+let discordId = null; // sera rempli après OAuth Discord
+
+// Exemple de fonction pour récupérer le token Discord puis le Discord ID
+async function fetchDiscordId(accessToken) {
+    const res = await fetch('https://discord.com/api/users/@me', {
+        headers: { 'Authorization': `Bearer ${accessToken}` }
+    });
+    const data = await res.json();
+    discordId = data.id;
+
+    // Enregistrer ou mettre à jour l'utilisateur dans le backend
+    await fetch('http://localhost:3001/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            discord_id: discordId,
+            username: data.username,
+            discriminator: data.discriminator
+        })
+    });
+}

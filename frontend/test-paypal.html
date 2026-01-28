@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test PayPal</title>
+</head>
+<body>
+
+<h1>TEST PAYPAL</h1>
+
+<div id="paypal-button-container"></div>
+
+<!-- SDK PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=AWroWMmvYtFai5hD9nuv1dYbJkni-IVa1ak9g6jDDKAS0SOYItVRdMkZusK08JVbVS0Ytz85-Xbf5Rff&currency=EUR"></script>
+
+<script>
+paypal.Buttons({
+    createOrder: (data, actions) => {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: '5.00'
+                }
+            }]
+        });
+    },
+    onApprove: (data, actions) => {
+        return actions.order.capture().then(() => {
+            alert('Paiement OK');
+        });
+    }
+}).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

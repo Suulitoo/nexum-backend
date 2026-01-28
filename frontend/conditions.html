@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions Générales de Vente - NEXUM</title>
+
+<style>
+/* Video en background */
+.video-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35); /* assombrir un peu pour le texte */
+}
+
+/* Corps de page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-y: auto; /* ✅ scroll vertical si nécessaire */
+    min-height: 100vh;
+    background: #0b0b0b; /* fallback si vidéo non chargée */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(17,17,17,0.85); /* légèrement transparent pour voir la vidéo */
+    border: 2px solid #f70b0b;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+h1, h2 {
+    color: #f70b0b;
+}
+
+a {
+    color: #f70b0b;
+}
+
+ul {
+    margin-left: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Vidéo de fond -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="video/videocoinsnexum.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="container">
+
+<h1>Conditions Générales de Vente</h1>
+
+<p>
+Les présentes Conditions Générales de Vente (CGV) régissent les ventes de coins virtuels proposées sur le site <strong>NEXUM</strong>.
+Toute commande implique l’acceptation pleine et entière des présentes conditions.
+</p>
+
+---
+
+<h2>1. Nature des produits</h2>
+
+<p>
+Les produits vendus sur le site sont des <strong>biens numériques</strong> (coins utilisables sur un serveur FiveM).
+Ils n’ont <strong>aucune valeur réelle</strong> et ne peuvent être échangés contre de l’argent réel.
+</p>
+
+---
+
+<h2>2. Paiement</h2>
+
+<p>
+Le paiement s’effectue exclusivement via <strong>PayPal</strong>.
+Le client est responsable du choix de son mode de paiement, notamment le paiement en « ami proche » lorsqu’il est proposé.
+</p>
+
+---
+
+<h2>3. Livraison</h2>
+
+<p>
+Les coins achetés seront transmis après confirmation du paiement.
+Le délai peut varier selon la disponibilité technique ou une vérification manuelle.
+</p>
+
+---
+
+<h2>4. Droit de rétractation et remboursements</h2>
+
+<p><strong>
+Conformément à l’article L221-28 du Code de la consommation, les biens numériques fournis immédiatement
+ne sont pas soumis au droit de rétractation.
+</strong></p>
+
+<p>
+Une fois le paiement effectué :
+</p>
+
+<ul>
+    <li>Aucun remboursement ne sera accordé</li>
+    <li>Aucune annulation de commande n’est possible</li>
+    <li>Aucun échange ne sera effectué</li>
+</ul>
+
+<p>
+Les demandes de remboursement liées à un arrêt de jeu, un changement d’avis ou toute autre raison personnelle
+ne seront pas acceptées.
+</p>
+
+---
+
+<h2>5. Responsabilité</h2>
+
+<p>
+NEXUM ne saurait être tenu responsable :
+</p>
+
+<ul>
+    <li>D’une perte de compte FiveM ou Discord</li>
+    <li>D’un bannissement du serveur</li>
+    <li>D’un problème technique indépendant de sa volonté</li>
+</ul>
+
+<p>
+Aucun remboursement ne sera accordé dans ces cas.
+</p>
+
+---
+
+<h2>6. Lutte contre les abus</h2>
+
+<p>
+Toute tentative de fraude, chargeback abusif ou litige PayPal injustifié pourra entraîner :
+</p>
+
+<ul>
+    <li>Un bannissement définitif du serveur</li>
+    <li>Un refus total de support</li>
+    <li>La transmission des preuves à PayPal</li>
+</ul>
+
+---
+
+<h2>7. Acceptation des conditions</h2>
+
+<p>
+Le client reconnaît avoir pris connaissance des présentes Conditions Générales de Vente
+et les accepter <strong>avant tout paiement</strong>, via une case à cocher obligatoire.
+</p>
+
+---
+
+<h2>8. Contact</h2>
+
+<p>
+Pour toute question, le support ticket est accessible via Discord.
+</p>
+
+<p style="margin-top:30px; font-size:0.9rem; color:#aaa;">
+Dernière mise à jour : 2026
+</p>
+
+</div>
+
+</body>
+
+<!-- Bouton flottant "Créé par LORENZO CARTER" -->
+<!-- Container flottant pour bouton + flèche -->
+<div style="position: fixed; right: 10px; bottom: 10px; display: flex; align-items: center; gap: 10px; z-index: 9999;">
+
+  <!-- Flèche animée + texte -->
+  <div style="display: flex; align-items: center; gap: 5px; font-weight: bold; color: #ff0b0b; cursor: pointer; animation: bounce 1.2s infinite;">
+    <span>Clique ici</span>
+    <span style="font-size:1.2rem;">➡️</span>
+  </div>
+
+  <!-- Bouton -->
+  <button id="lorenzo-btn" style="
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ff0b0b, #f70b0b);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff0b0b;
+      transition: transform 0.2s, box-shadow 0.2s;
+  ">
+    Créé par LORENZO CARTER
+  </button>
+</div>
+
+<script>
+document.getElementById("lorenzo-btn").onclick = () => {
+    window.open("https://tonsiteoureseaux.com", "_blank");
+};
+</script>
+
+<style>
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+#lorenzo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0b0b;
+}
+</style>
+
+
+<script>
+document.getElementById("lorenzo-btn").onclick = () => {
+    window.open("https://suulitoo.github.io/mes-liens-social-clean/", "_blank");
+};
+</script>
+</html>
