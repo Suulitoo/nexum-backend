@@ -1,0 +1,10 @@
+# Ignorer node_modules (généré par npm)
+node_modules/
+
+# Ignorer les fichiers de configuration locaux (secrets)
+.env
+
+# Autres ignores utiles (optionnel)
+*.log
+.DS_Store
+Thumbs.db
