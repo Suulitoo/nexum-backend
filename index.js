@@ -21,3 +21,7 @@ app.listen(PORT, '0.0.0.0', () => {
 
 // Pour confirmer que ça tourne (optionnel)
 console.log('Processus Node toujours vivant...');
+
+db.getConnection()
+  .then(() => console.log('MySQL OK'))
+  .catch(err => console.error('MySQL KO mais serveur continue :', err));
