@@ -20,7 +20,6 @@ const path = require('path');
 
 const app = express();
 // Remplace ta ligne app.listen actuelle par ça EXACTEMENT
-const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Backend NEXUM démarré sur http://0.0.0.0:${PORT}`);
