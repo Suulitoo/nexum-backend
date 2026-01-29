@@ -16,7 +16,7 @@ body {
     display:flex;
     flex-direction:column;
     position: relative;
-    overflow-y: auto; /* ✅ autoriser le scroll vertical */
+    overflow-y: auto;
 }
 
 /* Video en background */
@@ -34,7 +34,7 @@ body {
     content:"";
     position:absolute;
     inset:0;
-    background: rgba(0,0,0,0.65); /* overlay sombre */
+    background: rgba(0,0,0,0.65);
     z-index:-1;
 }
 
@@ -90,7 +90,6 @@ main {flex:1; padding:20px; position: relative; z-index:1;}
 }
 .cart ul {list-style:none; padding:0;}
 .cart li {display:flex; justify-content:space-between; margin-bottom:10px;}
-.paypal-container {margin-top:20px; display:flex; justify-content:center;}
 footer {
     text-align:center;
     padding:20px;
@@ -98,28 +97,43 @@ footer {
     position: relative; z-index:1;
 }
 
-/* Bouton PayPal Ami Proche */
+/* Bouton PayPal Ami Proche – style amélioré */
 #paypal-friend-btn {
-    padding: 12px 25px;
-    font-size: 1rem;
+    padding: 18px 50px;
+    font-size: 1.35rem;
     font-weight: bold;
-    border-radius: 10px;
-    border: 2px solid #009cde;
+    border-radius: 15px;
+    border: none;
     background: linear-gradient(90deg, #003087, #009cde);
     color: white;
     cursor: pointer;
-    transition: all 0.25s ease;
-    display:block;
-    margin:10px auto;
+    box-shadow: 0 0 25px rgba(0, 156, 222, 0.7);
+    transition: all 0.3s ease;
+    display: block;
+    margin: 25px auto;
+    width: 90%;
+    max-width: 320px;
 }
 #paypal-friend-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #009cde;
+    transform: scale(1.06);
+    box-shadow: 0 0 40px rgba(0, 156, 222, 1);
 }
 
 /* Checkbox terms / friend */
 label {display:block; text-align:center; margin:10px 0;}
 label input {margin-right:5px;}
+
+/* Animation flèche */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+#lorenzo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0b0b;
+}
 </style>
 </head>
 <body>
@@ -138,87 +152,106 @@ label input {margin-right:5px;}
 </header>
 
 <main>
-    <!-- Bouton PayPal Ami Proche -->
-    <div class="paypal-container">
-        <button id="paypal-friend-btn">
-            💸 PayPal Ami Proche<br>CLIQUE SUR CE BOUTON
-        </button>
-    </div>
-
     <!-- Container avec tous les packs de coins -->
     <div class="container">
         <div class="card">
             <img src="img/image1.png" alt="1.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>1.000 Coins</h2>
             <p>10€</p>
-            <button onclick="addToCart('1.000 Coins', 10)">Ajouter au panier</button>
+            <button onclick="addToCart('1.000 Coins', 10)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image1.png" alt="1.500 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>1.500 Coins</h2>
             <p>15€</p>
-            <button onclick="addToCart('1.500 Coins', 15)">Ajouter au panier</button>
+            <button onclick="addToCart('1.500 Coins', 15)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image2.png" alt="2.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>2.000 Coins</h2>
             <p>20€</p>
-            <button onclick="addToCart('2.000 Coins', 20)">Ajouter au panier</button>
+            <button onclick="addToCart('2.000 Coins', 20)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image2.png" alt="3.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>3.000 Coins</h2>
             <p>30€</p>
-            <button onclick="addToCart('3.000 Coins', 30)">Ajouter au panier</button>
+            <button onclick="addToCart('3.000 Coins', 30)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image3.png" alt="4.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>4.000 Coins</h2>
             <p>40€</p>
-            <button onclick="addToCart('4.000 Coins', 40)">Ajouter au panier</button>
+            <button onclick="addToCart('4.000 Coins', 40)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image4.png" alt="6.500 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>6.500 Coins</h2>
             <p>50€</p>
-            <button onclick="addToCart('6.500 Coins', 50)">Ajouter au panier</button>
+            <button onclick="addToCart('6.500 Coins', 50)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image5.png" alt="9.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>9.000 Coins</h2>
             <p>80€</p>
-            <button onclick="addToCart('9.000 Coins', 80)">Ajouter au panier</button>
+            <button onclick="addToCart('9.000 Coins', 80)">Commander</button>
         </div>
         <div class="card">
             <img src="img/image5.png" alt="12.000 Coins" style="width:100%; max-width:150px; margin-bottom:10px;">
             <h2>12.000 Coins</h2>
             <p>100€</p>
-            <button onclick="addToCart('12.000 Coins', 100)">Ajouter au panier</button>
+            <button onclick="addToCart('12.000 Coins', 100)">Commander</button>
         </div>
     </div>
 
-    <!-- Panier -->
+    <!-- Panier (le bouton PayPal est maintenant ici) -->
     <div class="cart">
         <h3>Panier</h3>
         <button id="clearCartBtn">Vider le panier</button>
         <ul id="cartItems"></ul>
         <p>Total : <strong><span id="total">0.00</span> €</strong></p>
 
-        <p style="color:#b3b3b3; font-weight:bold; text-align:center; margin-bottom:10px;">
-            Pour bénéficier du paiement en ami proche et payer moins cher, clique sur le bouton: "PayPal Ami Proche" au dessus des packs de coins
+                <p style="color:#b3b3b3; font-weight:bold; text-align:center; margin:15px 0;">
+            Pour payer moins cher : utilise le bouton PayPal Ami Proche ci-dessous !<br>
+            Envoie le montant exact et ton pseudo en message PayPal.
+        </p>
 
-        <!-- Checkbox obligatoire -->
+        <!-- BOUTON PAYPAL AMI PROCHE -->
+        <div class="paypal-container" style="text-align:center; margin: 25px 0;">
+            <button id="paypal-friend-btn">
+                💸 PayPal Ami & Proche<br>
+                <span style="font-size:1rem; opacity:0.9;">Clique ici pour payer sans frais</span>
+            </button>
+        </div>
+
+        <!-- NOUVEAU : Bouton "Je confirme l'achat" + webhook -->
+        <div style="text-align:center; margin: 30px 0;">
+            <button id="confirm-purchase-btn" style="
+                padding: 16px 60px;
+                font-size: 1.3rem;
+                font-weight: bold;
+                background: linear-gradient(90deg, #f70b0b, #ff0b0b);
+                color: white;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                box-shadow: 0 0 20px rgba(247, 11, 11, 0.6);
+                transition: all 0.3s;
+            ">
+                JE CONFIRME L'ACHAT
+            </button>
+            <p id="confirm-status" style="margin-top:10px; color:#b3b3b3; font-size:0.95rem; min-height:1.2em;"></p>
+        </div>
+
+        <!-- Checkboxes -->
         <label>
             <input type="checkbox" id="friend-check"> J’ai ajouté le compte PayPal en ami proche
         </label>
         <label>
             <input type="checkbox" id="terms-check"> J’ai lu et j’accepte les <a href="conditions.html" target="_blank">conditions de vente</a>. Les achats sont définitifs et non remboursables.
         </label>
-
-        <div class="paypal-container">
-            <div id="paypal-button-container"></div>
-        </div>
     </div>
+   
 
     <p style="color:#f70b0b; text-align:center; margin-top:15px;">
         ⚠️ Produit numérique – aucun remboursement possible après paiement. ⚠️
@@ -228,68 +261,33 @@ label input {margin-right:5px;}
 <footer style="position:relative;">
   © 2026 NEXUM
   <!-- Container flottant pour bouton + flèche -->
-<div style="position: fixed; right: 20px; bottom: 10px; display: flex; align-items: center; gap: 10px; z-index: 9999;">
+  <div style="position: fixed; right: 20px; bottom: 10px; display: flex; align-items: center; gap: 10px; z-index: 9999;">
+    <!-- Flèche animée + texte -->
+    <div style="display: flex; align-items: center; gap: 5px; font-weight: bold; color: #ff0b0b; cursor: pointer; animation: bounce 1.2s infinite;">
+      <span>Clique ici</span>
+      <span style="font-size:1.2rem;">➡️</span>
+    </div>
 
-  <!-- Flèche animée + texte -->
-  <div style="display: flex; align-items: center; gap: 5px; font-weight: bold; color: #ff0b0b; cursor: pointer; animation: bounce 1.2s infinite;">
-    <span>Clique ici</span>
-    <span style="font-size:1.2rem;">➡️</span>
+    <!-- Bouton Lorenzo -->
+    <button id="lorenzo-btn" style="
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #ff0b0b, #f70b0b);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 10px #ff0b0b;
+        transition: transform 0.2s, box-shadow 0.2s;
+    ">
+      Créé par LORENZO CARTER
+    </button>
   </div>
-
-  <!-- Bouton -->
-  <button id="lorenzo-btn" style="
-      padding: 12px 18px;
-      font-size: 0.95rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(90deg, #ff0b0b, #f70b0b);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff0b0b;
-      transition: transform 0.2s, box-shadow 0.2s;
-  ">
-    Créé par LORENZO CARTER
-  </button>
-</div>
+</footer>
 
 <script>
-document.getElementById("lorenzo-btn").onclick = () => {
-    window.open("https://suulitoo.github.io/mes-liens-social-clean/", "_blank");
-};
-</script>
-
-<style>
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-5px); }
-  60% { transform: translateY(-3px); }
-}
-
-#lorenzo-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff0b0b;
-}
-</style>
-
-<style>
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-5px); }
-  60% { transform: translateY(-3px); }
-}
-
-#lorenzo-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff0b0b;
-}
-</style>
-
-<!-- SDK PAYPAL -->
-<script src="https://www.paypal.com/sdk/js?client-id=AWroWMmvYtFai5hD9nuv1dYbJkni-IVa1ak9g6jDDKAS0SOYItVRdMkZusK08JVbVS0Ytz85-Xbf5Rff&currency=EUR"></script>
-
-<script>
-// Bouton PayPal Ami Proche
+// Bouton PayPal Ami Proche (ouvre paypal.me)
 document.getElementById("paypal-friend-btn").onclick = () => {
     window.open("https://www.paypal.me/ErwanTerrier", "_blank");
 };
@@ -297,61 +295,114 @@ document.getElementById("paypal-friend-btn").onclick = () => {
 // Panier
 let cart = [];
 let total = 0;
+
 function addToCart(name, price){
     cart.push({name, price});
     total += price;
     renderCart();
 }
+
 function renderCart(){
     const list = document.getElementById("cartItems");
     list.innerHTML="";
     cart.forEach(item => {
         const li = document.createElement("li");
-        li.innerHTML=`<span>${item.name}</span><span>${item.price.toFixed(2)}€</span>`;
+        li.innerHTML=`<span>${item.name}</span><span>${item.price.toFixed(2)} €</span>`;
         list.appendChild(li);
     });
     document.getElementById("total").innerText = total.toFixed(2);
 }
 
-// Vider le panier
 document.getElementById("clearCartBtn").onclick = () => {
     cart = [];
     total = 0;
     renderCart();
 };
+// Bouton "Je confirme l'achat" + envoi webhook Discord
+document.getElementById("confirm-purchase-btn").onclick = async () => {
+    const btn = document.getElementById("confirm-purchase-btn");
+    const status = document.getElementById("confirm-status");
 
-// PayPal
-paypal.Buttons({
-    createOrder: function (data, actions) {
-        const friendChecked = document.getElementById("friend-check").checked;
-        const termsChecked = document.getElementById("terms-check").checked;
+    // Déjà cliqué ou en cours ?
+    if (btn.disabled) return;
 
-        if (!friendChecked || !termsChecked) {
-            alert("Vous devez accepter les conditions et ajouter le compte PayPal en ami proche.");
-            throw new Error("Conditions non acceptées");
-        }
+    // Vérifications
+    const friendChecked = document.getElementById("friend-check").checked;
+    const termsChecked  = document.getElementById("terms-check").checked;
 
-        if (total <= 0) {
-            alert("Panier vide");
-            throw new Error("Panier vide");
-        }
-
-        return actions.order.create({
-            purchase_units: [{ amount: { value: total.toFixed(2) } }]
-        });
-    },
-    onApprove: function (data, actions) {
-        return actions.order.capture().then(() => {
-            alert("Paiement validé");
-            cart = [];
-            total = 0;
-            renderCart();
-        });
-    },
-    onError: function(err){
-        console.error("Erreur PayPal:", err);
+    if (!friendChecked) {
+        status.textContent = "Coche la case « J’ai ajouté le compte PayPal en ami proche »";
+        status.style.color = "#ff0b0b";
+        return;
     }
-}).render('#paypal-button-container');
+    if (!termsChecked) {
+        status.textContent = "Tu dois accepter les conditions de vente.";
+        status.style.color = "#ff0b0b";
+        return;
+    }
+    if (total <= 0) {
+        status.textContent = "Ton panier est vide !";
+        status.style.color = "#ff0b0b";
+        return;
+    }
+
+    // Confirmation utilisateur
+    if (!confirm(`Le paiement de ${total.toFixed(2)} € en Ami Proche à @Erwanterrier est effectuer?\n\n⚠️ Tout soupçon = refus immédiat. Doute ? Ticket Discord ou staff d’abord.\n\nSi OK → Merci pour ton achat Nexum ! ✌️`)) {
+        return;
+    }
+
+    // Désactive le bouton + feedback visuel
+    btn.disabled = true;
+    btn.style.opacity = "0.6";
+    btn.textContent = "Envoi en cours...";
+    status.textContent = "Envoi de la commande...";
+
+    // TON WEBHOOK DISCORD ICI (remplace par le vrai)
+    const webhookUrl = "https://discord.com/api/webhooks/https://discord.com/api/webhooks/1466439254581444761/2lRZ8o71jve7UTb2BtiAGSz_ti06VhX4bVYx7LueZJPM8GvhyKBrXPRixTDzMm4rVUq3";
+
+    const embed = {
+        title: "🛒 NOUVELLE COMMANDE CONFIRMÉE !",
+        color: 0xff0000,
+        fields: [
+            { name: "Panier", value: cart.map(i => `• ${i.name} — ${i.price} €`).join("\n") || "—", inline: false },
+            { name: "Total", value: `${total.toFixed(2)} €`, inline: true },
+            { name: "Paiement", value: "PayPal **Ami Proche** (manuel)", inline: true },
+            { name: "Heure", value: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }), inline: true }
+        ],
+        footer: { text: "NEXUM Boutique • Attente de paiement" },
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ embeds: [embed] })
+        });
+
+        if (!response.ok) throw new Error("Webhook failed");
+
+        status.textContent = "Commande envoyée ! Merci, attends la validation.";
+        status.style.color = "#00ff00";
+        btn.textContent = "Envoyé ✓";
+
+        // Optionnel : vider le panier après envoi
+        // cart = []; total = 0; renderCart();
+
+    } catch (err) {
+        console.error(err);
+        status.textContent = "Erreur lors de l'envoi... Réessaie ou contacte-nous.";
+        status.style.color = "#ff0b0b";
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.textContent = "JE CONFIRME L'ACHAT";
+    }
+};
+
+// Bouton Lorenzo
+document.getElementById("lorenzo-btn").onclick = () => {
+    window.open("https://suulitoo.github.io/mes-liens-social-clean/", "_blank");
+};
 </script>
 
 </body>
