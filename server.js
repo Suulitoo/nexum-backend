@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const db = require('./db');  // ou './database.js'
 
 const PORT = process.env.PORT || 8080;  // Railway injecte PORT automatiquement
 
