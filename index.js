@@ -1,3 +1,14 @@
+app.get('/test-alive', (req, res) => {
+  res.send('Backend ALIVE sur Railway ! ' + new Date().toISOString());
+});
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`=== SERVEUR DEMARRE SUR PORT ${PORT} - http://0.0.0.0:${PORT} ===`);
+});
+
+
 
 require('dotenv').config();
 const express = require('express');
