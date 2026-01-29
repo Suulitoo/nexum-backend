@@ -8,7 +8,12 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
+// Remplace ta ligne app.listen actuelle par ça EXACTEMENT
 const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend NEXUM démarré sur http://0.0.0.0:${PORT}`);
+});
 
 // ------------------------
 // Middleware
@@ -33,6 +38,9 @@ db.getConnection()
 // ------------------------
 // FRONTEND
 // ------------------------
+app.get('/health', (req, res) => {
+  res.send('Backend NEXUM OK - ' + new Date().toISOString());
+});
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 app.get('/login', (req, res) => {
@@ -145,12 +153,8 @@ app.post('/order', async (req, res) => {
   }
 });
 
-// ------------------------
-// Server
-// ------------------------
-app.listen(PORT, () => {
-  console.log(`Backend Nexum lancé sur le port ${PORT}`);
-});
+
+
 
 
 
